@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js -->
+	<link href="css/home.css" media="screen" rel="stylesheet" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Raleway, sans-serif;
+  
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #eee;
+  overflow-x: hidden;
+  padding-top: 20px;
+  border-right-color: "black";
+  border-right: 1px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #111111;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #8fc716;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 20px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color: #222222;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #dddddd;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Logo padding underneath */
+.sidenav img {
+   padding-bottom: 20px;
+   padding-left: 5px;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="sidenav">
+
+  <img src="images\primeL-logo_m.jpg" alt="Logo" height="60" width="190"> 
+
+  <a href="#dashboard">Dashboard</a>
+  <a href="#profile">Profile</a>
+  <button class="dropdown-btn">Settings
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Setting 1</a>
+    <a href="#">Setting 2</a>
+    <a href="#">Setting 3</a>
+  </div>
+
+</div>
+
+<div class="main">
+  <h2>System Admin Dashboard</h2>
+  <p>Contents of the dashboard here.</p>
+
+</div>
+
+
+            <section class="main" style="text-align:center">
+                <input type="radio" name="resize-graph" id="graph-normal" checked="checked" />			
+				<span class="button-label">User Logins:</span>
+                <input type="radio" name="fill-graph" id="f-product1" checked="checked" /><label for="f-product1">All Users</label>
+                <input type="radio" name="fill-graph" id="f-product2" /><label for="f-product2">Clients</label>
+                <input type="radio" name="fill-graph" id="f-product3" /><label for="f-product3">Candidates</label>
+			
+				</br>
+                <ul class="graph-container">
+
+                    <li>
+                        <span>2019-02</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">75</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2019-03</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">100</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>2019-04</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">50</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+					<li>
+                        <span>2019-05</span>
+                        <div class="bar-wrapper">
+                            <div class="bar-container">
+                                <div class="bar-background"></div>
+                                <div class="bar-inner">50</div>
+                                <div class="bar-foreground"></div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <ul class="graph-marker-container">
+                            <li style="bottom:25%;"><span>5.0</span></li>
+                            <li style="bottom:50%;"><span>10.0</span></li>
+                            <li style="bottom:75%;"><span>15.0</span></li>
+                            <li style="bottom:100%;"><span>20.0</span></li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+
+
+
+
+
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+</body>
+</html> 
